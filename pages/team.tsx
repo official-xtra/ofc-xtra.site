@@ -30,11 +30,12 @@ const Team: NextPage = () => {
   ]) as [string, string];
 
   const bgColor = useColorModeValue(darkColor, lightColor);
+  const bgAva = useColorModeValue("white", "gray.800");
   const color = useColorModeValue("gray.800", "yellow.300");
   return (
     <>
       <Head>
-        <title>Core Team &ndash; XTRA</title>
+        <title>Core Team &ndash; X-TRA</title>
       </Head>
 
       <Container as="section" maxW="container.lg" h="100%" py={4}>
@@ -72,7 +73,7 @@ const Team: NextPage = () => {
               <Center>
                 <ProfilePic
                   borderRadius="full"
-                  bgColor="gray.800"
+                  bgColor={bgAva}
                   boxSize="180px"
                   src={ava}
                   alt={name}
