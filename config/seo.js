@@ -1,6 +1,6 @@
 const SEO = {
   type: "website",
-  url: "https://test.ofc-xtra.site",
+  url: "https://ofc-xtra.site",
   title: "X-TRA Official Website",
   description:
     "X-TRA Is A Group Of People Graduated From AR-RAHMAT Junior High School. Let's start connecting with us via our social media!",
