@@ -1,0 +1,10 @@
+{
+	"editor.formatOnSave": true,
+	"javascript.format.enable": true,
+	"eslint.alwaysShowStatus": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"discord.enabled": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode"
+}
