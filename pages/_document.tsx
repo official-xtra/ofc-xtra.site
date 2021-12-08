@@ -22,6 +22,10 @@ export default class Document extends NextDocument {
         <Head>
           <meta charSet="UTF-8" />
           <meta content="ie=edge" httpEquiv="X-UA-Compatible" />
+          <meta
+            name="google-site-verification"
+            content="GWUSIqbkUPdIuagOctTVWqOLJzdSMtuNd39CkLdv0Rs"
+          />
           <link
             href="/favicon/favicon.ico"
             rel="shortcut icon"
