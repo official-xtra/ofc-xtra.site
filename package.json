@@ -16,14 +16,15 @@
     "@fontsource/inter": "^4.5.1",
     "cloudinary-build-url": "^0.2.1",
     "framer-motion": "^4.1.17",
-    "next": "11.1.2",
+    "next": "^12.2.0",
     "next-seo": "^4.28.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.2.0",
     "react-instagram-embed": "^3.0.0"
   },
   "devDependencies": {
+    "@types/node": "^18.0.0",
     "@types/react": "17.0.26",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",
