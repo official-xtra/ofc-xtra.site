@@ -11,7 +11,9 @@ export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <Box minH={["70vh", "55vh"]}>{children}</Box>
+      <Box as="main" minH={["70vh", "55vh"]}>
+        {children}
+      </Box>
       <Footer />
     </>
   );
