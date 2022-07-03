@@ -9,8 +9,8 @@ const siteConfig = {
   links: {
     Home: "/",
     Team: "/team",
+    Member: "/member",
     Repository: "https://github.com/official-xtra/dev-test-website",
-    ComingSoon: "/coming-soon",
   },
 };
 
