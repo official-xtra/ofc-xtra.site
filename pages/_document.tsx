@@ -1,7 +1,7 @@
+// eslint-disable-next-line @next/next/no-document-import-in-page
 import * as React from "react";
 import { ColorModeScript } from "@chakra-ui/react";
 import theme from "../styles/theme";
-// eslint-disable-next-line @next/next/no-document-import-in-page
 import NextDocument, {
   DocumentContext,
   Html,
@@ -22,10 +22,10 @@ export default class Document extends NextDocument {
         <Head>
           <meta charSet="UTF-8" />
           <meta content="ie=edge" httpEquiv="X-UA-Compatible" />
-          <meta
+          {/* <meta
             name="google-site-verification"
             content="GWUSIqbkUPdIuagOctTVWqOLJzdSMtuNd39CkLdv0Rs"
-          />
+          /> */}
           <link
             href="/favicon/favicon.ico"
             rel="shortcut icon"
