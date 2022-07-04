@@ -1,40 +1,33 @@
 import * as React from "react";
-import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
+import NextLink from "next/link";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import {
   Box,
   Container,
-  Heading,
   HStack,
   Stack,
   Link,
   Text,
   VStack,
-  useToken,
-  useBreakpointValue,
   Spacer,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import NextLink from "next/link";
 import siteConfig from "../../config/site";
+import { BaseLink } from "../links/BaseLink";
 
 export const Footer: React.FC = () => {
-  const [lightColor, darkColor] = useToken("colors", [
-    "gray.900",
-    "gray.50",
-  ]) as [string, string];
-
-  const bgColor = useColorModeValue(darkColor, lightColor);
+  const bgColor = useColorModeValue("gray.200", "gray.900");
   const textColor = useColorModeValue("gray.800", "yellow.300");
 
   return (
     <Box as="footer" bgColor={bgColor}>
-      <Container maxW="container.lg" h={["100%", "45vh"]} px={6} py={12}>
+      <Container maxW="container.lg" h={["full", "45vh"]} py={[12, 16]}>
         <Stack
           direction={["column-reverse", "row"]}
-          h="100%"
+          h="full"
           align="flex-start"
           justify="flex-start"
-          spacing={8}
+          spacing={[16, 10]}
         >
           <VStack
             align="flex-start"
@@ -44,64 +37,19 @@ export const Footer: React.FC = () => {
           >
             <Text>
               This site was built using{" "}
-              <Link
-                textColor={textColor}
-                fontWeight="semibold"
-                href="https://nextjs.org"
-                isExternal
-              >
-                Next.js
-              </Link>
-              ,{" "}
-              <Link
-                textColor={textColor}
-                fontWeight="semibold"
-                href="https://chakra-ui.com"
-                isExternal
-              >
-                Chakra UI
-              </Link>
-              , and written in{" "}
-              <Link
-                textColor={textColor}
-                fontWeight="semibold"
-                href="https://www.typescriptlang.org/"
-                isExternal
-              >
-                TypeScript
-              </Link>
+              <BaseLink href="https://nextjs.org" name="Next.js" />
+              , <BaseLink href="https://chakra-ui.com" name="Chakra UI" />, and
+              written in{" "}
+              <BaseLink
+                href="https://www.typescriptlang.org"
+                name="TypeScript"
+              />
               .
             </Text>
-            <Text>
-              Hosted on{" "}
-              <Link
-                textColor={textColor}
-                fontWeight="semibold"
-                href="https://vercel.com/"
-                isExternal
-              >
-                Vercel
-              </Link>
-              .
-            </Text>
-            <Text>
-              Code Licensed under{" "}
-              <Box as="span" fontWeight="semibold">
-                MIT License
-              </Box>
-              .
-            </Text>
+            <Text>Code Licensed under MIT License.</Text>
             <Text>
               © 2021-present{" "}
-              <Link
-                textColor={textColor}
-                fontWeight="semibold"
-                href="https://ofc-xtra.site/"
-                isExternal
-              >
-                Official X-TRA
-              </Link>
-              .{" "}
+              <BaseLink href="https://ofc-xtra.site" name="Official X-TRA" />.{" "}
               <Box as="span" opacity="0.7">
                 version-1.0
               </Box>
@@ -111,55 +59,48 @@ export const Footer: React.FC = () => {
           <Spacer display={["none", "block"]} />
 
           <HStack justify="flex-start" align="flex-start" spacing={16}>
-            <VStack textAlign="left">
-              <Stack>
-                <Text
-                  fontSize={["xs", "md"]}
-                  fontWeight="medium"
-                  letterSpacing="widest"
-                  textTransform="uppercase"
-                  textColor={textColor}
-                >
-                  Links
-                </Text>
+            <VStack align="start">
+              <Text
+                fontSize={["sm", "md"]}
+                letterSpacing="widest"
+                textColor={textColor}
+                pb={2}
+              >
+                LINKS
+              </Text>
+              <VStack align="start" spacing={3}>
                 {Object.entries(siteConfig.links).map(([link, href]) => (
-                  <NextLink key={link} href={href}>
-                    <Text
-                      fontSize={["xs", "sm"]}
+                  <NextLink key={link} href={href} passHref>
+                    <Link
+                      fontSize="sm"
                       cursor="pointer"
                       _hover={{
                         textDecoration: "underline",
                       }}
                     >
                       {link}
-                    </Text>
+                    </Link>
                   </NextLink>
                 ))}
-              </Stack>
+              </VStack>
             </VStack>
 
-            <VStack textAlign="left">
-              <Stack>
-                <Text
-                  fontSize={["xs", "md"]}
-                  fontWeight="medium"
-                  letterSpacing="widest"
-                  textTransform="uppercase"
-                  textColor={textColor}
-                >
-                  Socials
-                </Text>
+            <VStack align="start">
+              <Text
+                fontSize={["sm", "md"]}
+                letterSpacing="widest"
+                textColor={textColor}
+                pb={2}
+              >
+                SOCIALS
+              </Text>
+              <VStack align="start" spacing={3}>
                 {Object.entries(siteConfig.socials).map(([social, href]) => (
-                  <Link
-                    key={social}
-                    href={href}
-                    fontSize={["xs", "sm"]}
-                    isExternal
-                  >
+                  <Link key={social} href={href} fontSize="sm" isExternal>
                     {social} <ExternalLinkIcon boxSize={3} mx="2px" />
                   </Link>
                 ))}
-              </Stack>
+              </VStack>
             </VStack>
           </HStack>
         </Stack>

@@ -47,8 +47,8 @@ export const SectionMoments: React.FC = () => {
   const buttonSize = useBreakpointValue(["sm", "md", "lg"]);
 
   return (
-    <Box as="section" w="100%" h="100%" bgColor={bgColor} pb={16}>
-      <Container maxW="container.lg" h="100%" py={4}>
+    <Box as="section" w="full" h="full" bgColor={bgColor} pb={[12, 24]} py={12}>
+      <Container maxW="container.lg" h="full" py={4}>
         <VStack
           alignItems="center"
           textAlign="center"
@@ -69,19 +69,19 @@ export const SectionMoments: React.FC = () => {
             "repeat(1, 1fr)",
             "repeat(2, 1fr)",
           ]}
-          gap={[6, 8]}
+          gap={10}
         >
           {MOMENTS_DATA.map(([image, post, date]) => (
             <VStack
               key={image}
-              w="100%"
-              h="100%"
+              w="full"
+              h="full"
               borderWidth="1px"
               borderRadius="lg"
               boxShadow="xl"
               overflow="hidden"
             >
-              <Flex w="100%" h="100%">
+              <Flex w="full" h="full">
                 <NextImage
                   width="1080"
                   height="640"
@@ -92,16 +92,12 @@ export const SectionMoments: React.FC = () => {
                 />
               </Flex>
 
-              <HStack w="100%" px={6} pt={4} pb={8} spacing={4}>
-                <Avatar
-                  size="md"
-                  name="ofc xtra"
-                  src="https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/xtra.png"
-                />
+              <HStack w="full" px={6} pt={4} pb={8} spacing={4}>
+                <Avatar size="md" name="ofc xtra" src="xtra.png" />
 
                 <VStack justify="flex-start" align="flex-start">
                   <Link
-                    href="https://www.instagram.com/ofc.xtra/"
+                    href="https://www.instagram.com/ofc.xtra"
                     fontSize="lg"
                     fontWeight="semibold"
                     isExternal
@@ -129,7 +125,7 @@ export const SectionMoments: React.FC = () => {
           <Center>
             <Button
               as="a"
-              href="https://www.instagram.com/ofc.xtra/"
+              href="https://www.instagram.com/ofc.xtra"
               rightIcon={<ArrowForwardIcon />}
               size={buttonSize}
               colorScheme="yellow"

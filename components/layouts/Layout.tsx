@@ -3,11 +3,17 @@ import { Box } from "@chakra-ui/react";
 import { Footer } from "../footer";
 import { Navbar } from "../navbar";
 
-export const Layout: React.FC = ({ children }) => {
+type Props = {
+  children?: React.ReactNode;
+};
+
+export const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <Box minH={["70vh", "55vh"]}>{children}</Box>
+      <Box as="main" minH={["70vh", "55vh"]}>
+        {children}
+      </Box>
       <Footer />
     </>
   );

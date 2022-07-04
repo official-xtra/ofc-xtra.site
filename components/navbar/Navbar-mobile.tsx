@@ -1,33 +1,23 @@
 import * as React from "react";
-import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
+import { useColorModeValue } from "@chakra-ui/color-mode";
 import {
-  Box,
-  Container,
   HStack,
-  Button,
-  Icon,
   IconButton,
-  useToken,
-  Heading,
-  Spacer,
-  Divider,
+  Link,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
+  Spacer,
 } from "@chakra-ui/react";
-import {
-  FaMoon,
-  FaSun,
-  FaInstagram,
-  FaDiscord,
-  FaYoutube,
-  FaSteam,
-} from "react-icons/fa";
+import { FaInstagram, FaDiscord, FaYoutube, FaSteam } from "react-icons/fa";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { IconType } from "react-icons/lib";
-import NextLink from "next/link";
+
 import siteConfig from "../../config/site";
+import { ThemeButton } from "../buttons/ThemeButton";
+import { HomeButton } from "../buttons/HomeButton";
+import { HeaderLayout } from "../layouts/HeaderLayout";
 
 const NAV_SOCIAL_LINKS: [string, string, IconType][] = [
   ["Instagram", siteConfig.socials.Instagram, FaInstagram],
@@ -37,69 +27,43 @@ const NAV_SOCIAL_LINKS: [string, string, IconType][] = [
 ];
 
 export const NavbarMobile: React.FC = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-
-  const [lightColor, darkColor] = useToken("colors", [
-    "gray.900",
-    "gray.50",
-  ]) as [string, string];
-
-  const bgSvg = useColorModeValue(darkColor, lightColor);
-  const color = useColorModeValue("gray.800", "yellow.300");
   const bgMenu = useColorModeValue("gray.200", "gray.800");
 
   return (
-    <>
-      <Box w="100%" position="fixed" zIndex={100} backdropFilter="blur(14px)">
-        <Container
-          as="header"
-          maxW="container.lg"
-          maxH={["100%", "100vh"]}
-          py={4}
-        >
-          <HStack as="nav" w="100%" alignItems="flex-start">
-            <HStack>
-              <NextLink href="/" passHref>
-                <Button as="a" variant="ghost" color={color}>
-                  Home
-                </Button>
-              </NextLink>
+    <HeaderLayout>
+      <HStack w="full" h="full" justify="center">
+        <HStack>
+          <HomeButton />
+        </HStack>
 
-              <NextLink href="#" passHref>
-                <Button as="a" variant="ghost" opacity="0.5">
-                  Coming Soon
-                </Button>
-              </NextLink>
-            </HStack>
+        <Spacer />
 
-            <Spacer />
+        <HStack>
+          <ThemeButton variant="ghost" />
 
-            <HStack>
-              <Button variant="ghost" onClick={toggleColorMode} px={2}>
-                {colorMode === "light" ? <FaMoon /> : <FaSun />}
-              </Button>
-              <Menu>
-                <MenuButton
-                  as={IconButton}
-                  aria-label="Options"
-                  icon={<HamburgerIcon />}
-                  variant="outline"
-                />
-                <MenuList bgColor={bgMenu}>
-                  {NAV_SOCIAL_LINKS.map(([name, href, AsIcon]) => (
-                    <NextLink key={name} href={href} passHref>
-                      <MenuItem as="a" icon={<AsIcon />} target="_blank">
-                        {name}
-                      </MenuItem>
-                    </NextLink>
-                  ))}
-                </MenuList>
-              </Menu>
-            </HStack>
-          </HStack>
-        </Container>
-        <Divider />
-      </Box>
-    </>
+          <Menu id="navbar-menu" isLazy>
+            <MenuButton
+              as={IconButton}
+              aria-label="Navbar Menu"
+              icon={<HamburgerIcon />}
+              variant="ghost"
+            />
+            <MenuList bgColor={bgMenu}>
+              {NAV_SOCIAL_LINKS.map(([name, href, AsIcon]) => (
+                <MenuItem
+                  key={name}
+                  as={Link}
+                  href={href}
+                  icon={<AsIcon />}
+                  isExternal
+                >
+                  {name}
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+        </HStack>
+      </HStack>
+    </HeaderLayout>
   );
 };

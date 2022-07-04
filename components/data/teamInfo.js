@@ -1,7 +1,7 @@
 const teamInfo = {
   title: "OFC-XTRA Devs Team",
   desc: "This website is led by a small team who volunteered their time in the development process. The source code is open and accepting contributions from people all over the world.",
-  note: "Note: credit of avatars goes to Apple Memoji.",
+  note: "Note: credit of avatars belongs to Apple Memoji.",
   member: {
     1: "https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/memojis/arok.png",
     2: "https://raw.githubusercontent.com/official-xtra/dev-test-website/main/public/memojis/mamin.png",

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const YoutubeEmbed = ({ embedId, top, left, right }) => (
+export const YoutubeEmbedDesktop = ({ embedId }) => (
   <div className="video-responsive">
     <iframe
       width="560"
@@ -12,23 +12,17 @@ const YoutubeEmbed = ({ embedId, top, left, right }) => (
       allowFullScreen
       title="Embedded youtube"
       style={{
-        position: "absolute",
         width: "100%",
         height: "100%",
-        top: `${top}`,
-        left: `${left}`,
-        right: `${right}`,
+        position: "absolute",
+        top: "-24px",
+        left: "-24px",
         zIndex: 10,
       }}
     />
   </div>
 );
 
-YoutubeEmbed.propTypes = {
+YoutubeEmbedDesktop.propTypes = {
   embedId: PropTypes.string.isRequired,
-  top: PropTypes.string.isRequired,
-  left: PropTypes.string,
-  right: PropTypes.string,
 };
-
-export default YoutubeEmbed;
