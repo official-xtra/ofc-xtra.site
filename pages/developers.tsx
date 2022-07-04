@@ -26,7 +26,7 @@ const Developers: NextPage = () => {
           w="100%"
           spacing="1.5rem"
           alignItems="flex-start"
-          mt={[16, 32]}
+          pt={[28, 32]}
           lineHeight={1.8}
         >
           <Heading
@@ -54,7 +54,7 @@ const Developers: NextPage = () => {
           ))}
         </Stack>
 
-        <Text fontSize="sm" opacity={0.5}>
+        <Text fontSize="sm" opacity={0.5} pb={8}>
           {teamInfo.note}
         </Text>
       </Container>
